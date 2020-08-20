@@ -28,7 +28,30 @@ variable "cidr_block" {
   default     = "192.168.0.0/16"
 }
 
+variable "sg_web_name" {
+  default = "DefaultSGweb"
+}
+
+variable "sg_web_description" {
+  default = "Allow SSH"
+}
+
+variable "open_internet" {
+  default = "0.0.0.0/0"
+}
+
 variable "sn_cidr_block" {
   description = "This variable states the subnet_a cidr_block"
   default     = "192.168.1.0/24"
+}
+
+variable "ingress_ports" {
+  description = "List of Ingress Ports"
+  type        = list(number)
+  default     = [22]
+}
+
+variable "outbound_port" {
+  description = "Port open to allow outbound connection"
+  default     = 0
 }
